@@ -15,8 +15,8 @@
 ## Quickstart
 
 ```
-git clone https://github.com/Cyfrin/2023-10-PasswordStore
-cd 2023-10-PasswordStore
+git@github.com:aitorzaldua/challenges.git
+cd challenge_01/
 ​forge install foundry-rs/forge-std --no-commit
 forge build
 ```
