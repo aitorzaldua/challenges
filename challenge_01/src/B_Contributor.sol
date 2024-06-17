@@ -2,10 +2,11 @@
 pragma solidity ^0.8.18;
 
 /*
- * @author aitor zaldua
- * @title PasswordStore
- * @notice This contract allows you to store a private password that others won't be able to see.
- * You can update your password at any time.
+ * @title Contributor
+ * @notice This contract allows you to add funds to this contract using  contribute().
+ * ******* If you are able to send more ether to the contract than the owner, you will become
+ * ******* the owner but you only have 1 ether.
+ * ******* As a security researcher, you have to stole the funds and write the PoC to send to developers.
  */
 contract B_Contributor {
     mapping(address => uint256) public contributions;
@@ -13,7 +14,7 @@ contract B_Contributor {
 
     constructor() {
         owner = msg.sender;
-        contributions[msg.sender] = 1000 * (1 ether);
+        contributions[msg.sender] = 1000 ether;
     }
 
     modifier onlyOwner() {
@@ -22,7 +23,7 @@ contract B_Contributor {
     }
 
     function contribute() public payable {
-        require(msg.value < 0.001 ether);
+        require(msg.value < 1 ether);
         contributions[msg.sender] += msg.value;
         if (contributions[msg.sender] > contributions[owner]) {
             owner = msg.sender;
