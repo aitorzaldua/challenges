@@ -2,12 +2,13 @@
 pragma solidity ^0.8.18;
 
 /*
- * @author challenge
- * @title PasswordStore
- * @notice This contract allows you to store a private password that others won't be able to see.
- * You can update your password at any time.
+ * @title A_PasswordStore
+ * @notice This contract allows store private passwords.
+ ********* It is owner protected, so only the owner can see the password.
+ ********* Also, only the owner can set a new password.
+ * CHALLENGE: Find all the vulnerabilities.
  */
-contract PasswordStore {
+contract A_PasswordStore {
     error PasswordStore__NotOwner();
 
     address private s_owner;
